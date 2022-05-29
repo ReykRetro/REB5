@@ -1,0 +1,19 @@
+400A0000BCEC9E08	//Call[event:0x89EECBC ](CALL)
+40050200BCF19E08400A0000C0E09E08	//If Tutorial, Branch[Event:0x89EF1BC ]
+27190000	//Checks if you're in easy mode(CHECK_TUTORIAL)
+410C00000C000000	//BNE (If [MemorySlotX:0xC Result] != [MemorySlotY:0x0 Always 0 (write protected)], Then Jump to [Conditional ID:0x0], Else execute following)
+400D000061F40C08	//[Assembler function:0x80CF461 ASM]is called[argument:0x0](ASMC)
+20080000	//LABEL[Conditional ID:0x0]
+29020800	//Flag ON[Flag:0x8 Temporary flag 08](ENUT)
+402C0100143C8B0820300000	//Load units and move. If player unit, join party.[Units:0x88B3C14](LOAD1+ENUN)
+400501000D00000025340200	//Set HP to[Current HP:13]for Unit[Character:0x2 Seth](SET_HP)
+213B0100200E3C00223B0000	//For[Frame seconds:60 frame sec(1 sec)]frames[Character:0x1 Eirika]is highlighted(CUMO)
+20150000400502001D000000400503000D090000400A000010E39E0821150000	//Lower volume and display dialog (conversation) with BG [background:0x1D ][conversation text:0x90D Princess Eirika! Thi](HouseEvent)
+402F18000200040420300000	//Move[Character:0x2 Seth]to[X:4][Y:4]with[Speed:24 frame sec(0.4 sec)]and wait(MOVE+ENUN)
+213B0200200E3C00223B0000	//For[Frame seconds:60 frame sec(1 sec)]frames[Character:0x2 Seth]is highlighted(CUMO)
+201A0000201B0E09201D0000221B0000	//Dialog (conversation)[conversation text:0x90E Once we cross that b](TEXTSTART+TEXTSHOW+TEXTEND+REMA)
+400502007CF29E08400A0000C0E09E08	//If Tutorial, Branch[Event:0x89EF27C ]
+482F00000100040520300000	//[Character:0x1 Eirika]warps to coordinates[X:4][Y:5]with[Speed:0 frame sec(0 sec)](_WARP+ENUN)
+400A000060F09E08	//Call[event:0x89EF060 ](CALL)
+400A0000A4F09E08	//Call[event:0x89EF0A4 ](CALL)
+2802070020010000	//Event end(also serves as a section to no fade)(EVBIT_T+ENDA)
